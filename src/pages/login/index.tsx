@@ -1,47 +1,95 @@
-import React from 'react'
-
+import React, { useState } from 'react'
 import {
-    Text, View, Image, TextInput
+    Text, View, Image, TextInput,
+    TouchableOpacity,
+    Alert,
 } from 'react-native';
 import { style } from "./styles"
-import { midStyle } from './midstyle'; 
-import { topStyle } from './topstyle';
-import { bottomStyle } from './bottomstyle'
 import Logo from "../../assets/logo.png"
+import {MaterialIcons} from '@expo/vector-icons'
+import { Input } from '../../components/input';
+import { Button } from '../../components/button';
+import {useNavigation, NavigationProp} from '@react-navigation/native'
 
 export default function Login (){
+
+    const navigation = useNavigation<NavigationProp<any>>()
+
+    const [email,setEmail] = useState('')
+    const [password,setPassword] = useState('')
+    const [showPassword, setShowPassword] = useState(false)
+    const [loading,setLoading] = useState(false)
+    
+
+    async function getLogin(){
+        try{
+
+            setLoading(true)
+            if(!email || !password){
+                return Alert.alert('Atenção', 'Informe os campos obrigatorios')
+            }
+        } catch(error) {
+            console.log(error)
+        }
+    }
+
+    async function getForgotPassword() {
+        navigation.navigate('ForgotPassword')
+    }
+
     return (
-        <View style={style.container}>
-            <Image
-                // source={require("../../assets/fundo.png")}
-            />
-            
-            <View style={topStyle.boxTop}>
-               <Image
-               source={Logo}
-               resizeMode='contain'
-               />
-            </View>
-
-            <View style={midStyle.boxMid}>
-                <Text style={midStyle.text}>E-mail</Text>
-                <TextInput
-                    placeholder='E-mail'
-                />
-                
-                <Text style={midStyle.text}>Senha</Text>
-                <View style={midStyle.boxInput}>
-                    <TextInput
-                        style={midStyle.input}
+            <View style={style.container}>
+               
+                    <Image
+                        source={require("../../assets/fundo.png")}
+                        style={style.fundo}
                     />
-                    <Text>Senha</Text>
-                </View>
-            </View>
+                      <View style={style.boxTop}>
+                    <Image
+                    style={{position:'absolute',height:300,bottom:20,left:15}}
+                    source={Logo}
+                    resizeMode='contain'
+                    />
+                    </View>
 
-            <View style={bottomStyle.boxBottom}>
+                    <View style={{bottom:30}}>
+                        <View style={style.boxMid}>
+                        <Input
+                            title='E-mail'
+                            onChangeText={setEmail}
+                        />
+                        <View style={{ marginBottom: 60}} />
+                        <Input
+                            title='Senha'
+                            value={password}
+                            secureTextEntry={!showPassword}
+                            onIconRigthPress={()=>setShowPassword(prev => !prev)}
+                            onChangeText={setPassword}
+                            IconRigth={MaterialIcons}
+                            iconRigthName={showPassword?'visibility':'visibility-off'}
+                        />
+                        
+                        <TouchableOpacity style={{top:10}} onPress={getForgotPassword}>
+                            <Text style={{fontWeight:'bold'}}>Esqueceu a senha?</Text>
+                        </TouchableOpacity>
+                    </View>
+                    
+                </View>
+
+                <View style={style.boxBottom}>
+                    <Button
+                        text="Login"
+                        loading={loading}
+                        onPress={()=>getLogin()}
+                    />
+                    <TouchableOpacity>
+                        <Text style={{fontWeight:'bold'}}>Não tem conta? Crei a sua agora!</Text>
+                        <View />
+                    </TouchableOpacity>  
+                    
+                </View>
+            
                 
             </View>
-            
-        </View>
     )
 }
