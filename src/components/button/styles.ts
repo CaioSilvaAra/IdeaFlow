@@ -10,7 +10,7 @@ export const style = StyleSheet.create({
         justifyContent:'center',
         backgroundColor:'#B3B3B3',
         borderRadius:30,
-        bottom:100,
+        // bottom:100,
         flexDirection:'row',
         shadowColor:'blue',
         elevation:10

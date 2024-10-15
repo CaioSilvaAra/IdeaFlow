@@ -10,11 +10,10 @@ export const style = StyleSheet.create({
     },
 
     boxTop:{
-        height:Dimensions.get('window').height/4,
-        width:"100%",
-        justifyContent:'center',
-        alignItems:'center',
-        bottom:100
+        height:Dimensions.get('window').height/3,
+        width:"90%",
+        bottom:70,
+        
     },
 
 
@@ -22,14 +21,17 @@ export const style = StyleSheet.create({
         height:'20%',
         width:"95%",
         justifyContent:'center',
-        top:100
+        top:100,
         
         
     },
     boxBottom:{
-        height:'25%',
-        width:"95%",
-        top:100,
- 
+        height:'20%',
+        width:"100%",
+        
+        justifyContent:'center',
+        alignItems:'center',
+        top:100
+        
     },
 })

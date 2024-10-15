@@ -27,40 +27,36 @@ export default function ForgotPassword(){
         <View style={style.container}>
 
             <View style={style.boxTop}>
+                
                 <Goback
                     onPress={getLogin}
                 />
-
                 
             </View>
 
             <View style={style.boxMid}>
                 <TitleText
-                    
                     title="Esqueci a senha"
-                
                 />
                 <SubTitle  
                     title="Insira seu email para receber um código de recuperação."                
-                />     
-                
+                />      
 
-                
-                
+                <Input
+                title='Endereço de email'
+                onChangeText={setEmail}
+                /> 
+
+    
             </View>
 
             <View style={style.boxBottom}>
-            <Input
-                title='Endereço de email'
-                onChangeText={setEmail}
-            />            
-            </View>
-            <View style={{top:100}}>
+        
                 <Button
-                    text='Login'
-                
+                    text="Enviar Código"
                 />
             </View>
+           
 
         </View>
     )

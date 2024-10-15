@@ -37,6 +37,10 @@ export default function Login (){
         navigation.navigate('ForgotPassword')
     }
 
+    async function getRegister() {
+        navigation.navigate('Register')
+    }
+
     return (
             <View style={style.container}>
                
@@ -46,9 +50,9 @@ export default function Login (){
                     />
                       <View style={style.boxTop}>
                     <Image
-                    style={{position:'absolute',height:300,bottom:20,left:15}}
-                    source={Logo}
-                    resizeMode='contain'
+                        style={{position:'absolute',height:300,bottom:80,left:15}}
+                        source={Logo}
+                        resizeMode='contain'
                     />
                     </View>
 
@@ -76,17 +80,19 @@ export default function Login (){
                     
                 </View>
 
-                <View style={style.boxBottom}>
+                <View style={style.boxButton}>
                     <Button
                         text="Login"
                         loading={loading}
                         onPress={()=>getLogin()}
-                    />
-                    <TouchableOpacity>
+                    />                 
+                </View>
+                
+                <View style={{top:30}}>
+                    <TouchableOpacity onPress={getRegister}>
                         <Text style={{fontWeight:'bold'}}>Não tem conta? Crei a sua agora!</Text>
                         <View />
-                    </TouchableOpacity>  
-                    
+                    </TouchableOpacity> 
                 </View>
             
                 

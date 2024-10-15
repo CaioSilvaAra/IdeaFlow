@@ -28,12 +28,11 @@ export const style = StyleSheet.create({
         justifyContent:'center',
         bottom:20
     },
-    boxBottom:{
-        height:Dimensions.get('window').height/4,
+    boxButton:{
         width:"100%",
-        
-        justifyContent:'center',
         alignItems:'center',
+        bottom:35,
+        margin:20
         
     },
 
