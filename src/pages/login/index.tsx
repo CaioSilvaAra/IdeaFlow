@@ -24,12 +24,17 @@ export default function Login (){
     async function getLogin(){
         try{
 
-            setLoading(true)
-            if(!email || !password){
-                return Alert.alert('Atenção', 'Informe os campos obrigatorios')
-            }
+            // setLoading(true)
+            // if(!email || !password){
+            //     return Alert.alert('Atenção', 'Informe os campos obrigatorios')
+            //     }
+                
+            navigation.navigate('Home')
+            
         } catch(error) {
             console.log(error)
+        }finally{
+            setLoading(false)
         }
     }
 
@@ -49,6 +54,7 @@ export default function Login (){
                         style={style.fundo}
                     />
                       <View style={style.boxTop}>
+                        
                     <Image
                         style={{position:'absolute',height:300,bottom:80,left:15}}
                         source={Logo}
@@ -83,7 +89,7 @@ export default function Login (){
                 <View style={style.boxButton}>
                     <Button
                         text="Login"
-                        loading={loading}
+                        
                         onPress={()=>getLogin()}
                     />                 
                 </View>
@@ -93,9 +99,7 @@ export default function Login (){
                         <Text style={{fontWeight:'bold'}}>Não tem conta? Crei a sua agora!</Text>
                         <View />
                     </TouchableOpacity> 
-                </View>
-            
-                
+                </View>    
             </View>
     )
 }

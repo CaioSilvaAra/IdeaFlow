@@ -13,7 +13,7 @@ import { Button } from "../../components/button";
 
 
 
-export default function ForgotPassword(){
+export default function Register(){
     const navigation = useNavigation<NavigationProp<any>>()
     const [email,setEmail] = useState('')
     const [loading,setLoading] = useState(false)
@@ -29,7 +29,7 @@ export default function ForgotPassword(){
            <View style={style.boxTop}>
                 <View style={{bottom:20}}>
                     <Goback
-                        onPress={Login}
+                        onPress={getLogin}
                     />
                 </View>
                 <TitleText
@@ -41,15 +41,26 @@ export default function ForgotPassword(){
                 />
                 <View style={style.input}>
                     <Input style={style.inputitem} title="Nome completo"/>
+                    <View style={{ marginBottom: 40}} />
+
                     <Input style={style.inputitem} title="Endereço de e-mail"/>
+                    <View style={{ marginBottom: 40}} />
+
                     <Input style={style.inputitem} title="Senha"/>
+                    <View style={{ marginBottom: 40}} />
+
                     <Input style={style.inputitem} title="Digite senha novamente"/>
 
                 </View>
-           </View>
+                <View style={style.boxButton}>
 
-          
-        
+                    <Button
+                        text="Registre-se"
+                        loading={loading}
+                    />
+
+                </View>
+           </View>
 
         </View>
     )

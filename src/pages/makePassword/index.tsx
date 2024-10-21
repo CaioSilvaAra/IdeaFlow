@@ -13,20 +13,15 @@ import { Button } from "../../components/button";
 
 
 
-export default function ForgotPassword(){
+export default function MakePassword(){
     const navigation = useNavigation<NavigationProp<any>>()
     const [email,setEmail] = useState('')
     const [loading,setLoading] = useState(false)
 
 
-    async function getLogin() {
-        navigation.navigate('Login')
+    async function getForgotPassword() {
+        navigation.navigate('ForgotPassword')
     }
-
-    async function getMakePassword() {
-        navigation.navigate('MakePassword')
-    }
-
     return(
 
         <View style={style.container}>
@@ -34,22 +29,29 @@ export default function ForgotPassword(){
             <View style={style.boxTop}>
                 
                 <Goback
-                    onPress={getLogin}
+                    onPress={getForgotPassword}
                 />
                 
             </View>
 
             <View style={style.boxMid}>
                 <TitleText
-                    title="Esqueci a senha"
+                    title="Criar nova senha"
                 />
                 <SubTitle  
-                    title="Insira seu email para receber um código de recuperação."                
+                    title="Sua senha deve ser diferente da senha anterior"                
                 />      
 
                 <Input
-                title='Endereço de email'
-                onChangeText={setEmail}
+                    title='Endereço de email'
+                    onChangeText={setEmail}
+                /> 
+                <Text style={{fontSize:10}}>8  caracteres minimos</Text>
+                    <View style={{ marginBottom: 40}} />
+ 
+                <Input
+                    title='Endereço de email'
+                    onChangeText={setEmail}
                 /> 
 
     
@@ -58,8 +60,7 @@ export default function ForgotPassword(){
             <View style={style.boxBottom}>
         
                 <Button
-                    text="Enviar Código"
-                    onPress={getMakePassword}
+                    text="Criar senha"
                 />
             </View>
            

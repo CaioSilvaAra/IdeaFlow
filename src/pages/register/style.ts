@@ -13,19 +13,30 @@ export const style = StyleSheet.create({
 
     boxTop:{
         height:Dimensions.get('window').height/7,
-        width:"90%",
+        width:"95%",
         bottom:300,
     },
 
     input:{
         flexDirection: 'column',
         justifyContent: 'flex-start', // Distribui o espaço 
-        top:100,
+        top:50,
         
     },
     inputitem:{
-        marginBottom:20
-    }
+        alignContent:'space-between',
+        padding:10
+
+    },
+    boxButton :{
+        height:'20%',
+        width:"100%",
+        
+        justifyContent:'center',
+        alignItems:'center',
+        top:100
+        
+    },
     
    
 })

@@ -5,6 +5,9 @@ import BottomRoutes from "./bottom.routes";
 import forgotPassword from "../pages/forgotPassword";
 import register from "../pages/register";
 
+import MakePassword from "../pages/makePassword";
+import Home from "../pages/home";
+
 
 
 export default function Routes(){
@@ -19,6 +22,10 @@ export default function Routes(){
             <Stack.Screen name="Login" component={Login}/>
             <Stack.Screen name="ForgotPassword" component={forgotPassword}/>
             <Stack.Screen name="Register" component={register}/>
+            <Stack.Screen name="MakePassword" component={MakePassword}/>
+            <Stack.Screen name="Home" component={Home}/>
+
+
         </Stack.Navigator>
     )
 }

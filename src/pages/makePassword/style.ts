@@ -21,7 +21,7 @@ export const style = StyleSheet.create({
         height:'20%',
         width:"95%",
         justifyContent:'center',
-        top:100,
+        top:50,
         
         
     },
