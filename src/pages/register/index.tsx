@@ -19,7 +19,7 @@ export default function Register() {
   }
   return (
     <View style={style.container}>
-      <Image source={require("../../assets/fundo.png")} style={style.fundo} />
+      <Image source={require("../../assets/fundo2.png")} style={style.fundo} />
 
       <View style={style.boxTop}>
         <View style={{ bottom: 20 }}>
@@ -30,13 +30,13 @@ export default function Register() {
         <SubTitle title="E comece a fazer suas anotações" />
         <View style={style.input}>
           <Input style={style.inputitem} title="Nome completo" />
-          <View style={{ marginBottom: 40 }} />
+          {/* <View style={{ marginBottom: 40 }} /> */}
 
           <Input style={style.inputitem} title="Endereço de e-mail" />
-          <View style={{ marginBottom: 40 }} />
+          {/* <View style={{ marginBottom: 40 }} /> */}
 
           <Input style={style.inputitem} title="Senha" />
-          <View style={{ marginBottom: 40 }} />
+          {/* <View style={{ marginBottom: 40 }} /> */}
 
           <Input style={style.inputitem} title="Digite senha novamente" />
         </View>

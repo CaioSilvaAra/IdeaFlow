@@ -24,7 +24,7 @@ export default function ForgotPassword() {
 
   return (
     <View style={style.container}>
-      <Image source={require("../../assets/fundo.png")} style={style.fundo} />
+      <Image source={require("../../assets/fundo2.png")} style={style.fundo} />
 
       <View style={style.boxTop}>
         <Goback onPress={getLogin} />

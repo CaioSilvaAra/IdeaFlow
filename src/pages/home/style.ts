@@ -1,30 +1,45 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from 'react-native'
 
 export const style = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   fundo: {
-    position: "absolute",
-    height: "100%",
+    position: 'absolute',
+    height: '100%',
   },
   boxTop: {
-    width: "90%",
+    width: '90%',
     height: 100,
     top: 40,
-    justifyContent: "center",
-    position: "absolute",
+    justifyContent: 'center',
+    position: 'absolute',
   },
   boxTitle: {
-    width: "95%",
-    position: "absolute",
+    width: '95%',
+    position: 'absolute',
     bottom: 200,
   },
+  box: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    width: '85%',
+    height: '70%',
+    top: 30,
+    gap: 10,
+  },
   boxBottom: {
-    width: "90%",
-    position: "absolute",
+    width: '90%',
+    position: 'absolute',
     bottom: 30,
   },
-});
+  teste: {
+    width: 150,
+    height: 200,
+    borderRadius: 10,
+    backgroundColor: 'red, black',
+  },
+})

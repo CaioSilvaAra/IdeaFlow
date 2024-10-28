@@ -17,6 +17,8 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 5,
     backgroundColor: '#FFFAFA',
+    
+    
   },
   input: {
     height: 50,
