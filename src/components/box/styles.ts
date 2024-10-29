@@ -7,6 +7,10 @@ export const style = StyleSheet.create({
     height: 200,
     borderRadius: 10,
     backgroundColor: 'white',
+    borderWidth:2,
+    borderColor:'black',
     opacity: 0.7,
+    textAlignVertical:'top'
+    
   },
 })

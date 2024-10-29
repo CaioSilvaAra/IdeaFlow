@@ -22,15 +22,7 @@ export const style = StyleSheet.create({
     position: 'absolute',
     bottom: 200,
   },
-  box: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
-    width: '85%',
-    height: '70%',
-    top: 30,
-    gap: 10,
-  },
+
   boxBottom: {
     width: '90%',
     position: 'absolute',
@@ -42,4 +34,5 @@ export const style = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: 'red, black',
   },
+ 
 })
