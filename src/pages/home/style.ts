@@ -16,6 +16,7 @@ export const style = StyleSheet.create({
     top: 40,
     justifyContent: 'center',
     position: 'absolute',
+    
   },
   boxTitle: {
     width: '95%',

@@ -6,20 +6,26 @@ import { SubTitle, TitleText } from '../../components/text'
 import { Find } from '../../components/find'
 import { MaterialIcons, AntDesign } from '@expo/vector-icons'
 import { BoxNote } from '../../components/box'
+import { DrawerActions, NavigationProp, useNavigation } from '@react-navigation/native'
+import { createDrawerNavigator } from '@react-navigation/drawer'
+
+const Drawer = createDrawerNavigator()
 
 export default function Home() {
-  const [notes, setNotes] = useState([{ id: Date.now(), text: 'Escreva sua ideia' }]) // Inicializa com uma nota
+  const [notes, setNotes] = useState([{ id: Date.now() }]) // Inicializa com uma nota
 
   const addNote = () => {
     setNotes((prevNotes) => [
       ...prevNotes,
-      { id: Date.now(), text: 'Escreva sua ideia' }, // Adiciona nova nota
+      { id: Date.now() }, // Adiciona nova nota
     ])
   }
 
-  const handleNotaChange = (id, newText) => {
+  const handleNotaChange = () => {
     setNotes((prevNotes) => prevNotes.map((note) => (note.id === id ? { ...note, text: newText } : note)))
   }
+
+  
 
   return (
     <View style={style.container}>
@@ -29,11 +35,11 @@ export default function Home() {
         <Find
           placeholder="Search your note..."
           placeholderTextColor={'white'}
+          cursorColor={'white'}
           textAlign="center"
           IconLeft={MaterialIcons}
           iconLeftName={'menu'}
-          IconRigth={MaterialIcons}
-          iconRigthName={'supervised-user-circle'}
+          onIconLeftPress={getUser}
         />
       </View>
 
@@ -48,18 +54,19 @@ export default function Home() {
         </View>
       </View>
 
-      <ScrollView 
-        style={{ height: '70%', marginBottom: 100, marginTop: 150 }} // Ajuste a altura aqui
+      <ScrollView
+        style={{ height: '70%', marginBottom: 100, marginTop: 300, top: 30 }} // Ajuste a altura aqui
       >
-        <View style={{
-          
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-          justifyContent: 'space-around',
-          width: '100%', 
-          padding: 10,
-          gap:10
-        }}>
+        <View
+          style={{
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            justifyContent: 'space-around',
+            width: '100%',
+            padding: 10,
+            gap: 10,
+          }}
+        >
           {notes.map((note) => (
             <BoxNote
               key={note.id}
@@ -73,7 +80,7 @@ export default function Home() {
       <View style={style.boxBottom}>
         <View style={{ alignItems: 'flex-end' }}>
           <TouchableOpacity onPress={addNote}>
-            <AntDesign name="pluscircle" size={60} />
+            <AntDesign name="pluscircle" size={40} />
           </TouchableOpacity>
         </View>
       </View>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { TextInput, TouchableHighlightProps } from 'react-native-gesture-handler';
 import { style } from './styles';
+import { Text, TouchableOpacity } from 'react-native';
 
 type Props = TouchableHighlightProps & {
   initialText?: string; // Texto inicial (opcional)
@@ -16,12 +17,21 @@ export function BoxNote({ initialText = '', onChangeText, ...rest }: Props) {
   };
 
   return (
-    <TextInput
-      style={style.title}
-      value={text} // Define o valor do TextInput
-      onChangeText={handleTextChange} // Atualiza o texto ao digitar
-      multiline={true} // Permite múltiplas linhas
-      {...rest} // Propaga outras propriedades
-    />
+    // <TouchableOpacity
+    //   onPress={}
+    // >
+    //   <Text>{
+        
+        
+    //     }</Text>
+      <TextInput
+        style={style.title}
+        placeholder='Escreva sua ideia'
+        value={text} // Define o valor do TextInput
+        onChangeText={handleTextChange} // Atualiza o texto ao digitar
+        multiline={true} // Permite múltiplas linhas
+        {...rest} // Propaga outras propriedades
+      />
+    // </TouchableOpacity>
   );
 }

@@ -15,12 +15,14 @@ export const styles = StyleSheet.create({
     flexDirection: 'row', //usado para deixar o que tiver dentro da View, lada a lada
     alignItems: 'center',
     paddingHorizontal: 5,
-    backgroundColor: 'black',
+    backgroundColor:'black'
+    
   },
   input: {
     height: 50,
     width: '90%',
     borderRadius: 10,
+    color:'white'
   },
   icon: {
     width: '100%',

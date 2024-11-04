@@ -1,5 +1,5 @@
 import React, { forwardRef, Fragment, LegacyRef } from 'react'
-
+import { useNavigation } from '@react-navigation/native';
 import { View, Text, TextInput, TextInputProps, TouchableOpacity } from 'react-native'
 import { styles } from './style'
 import { MaterialIcons, FontAwesome, Octicons } from '@expo/vector-icons'
@@ -18,6 +18,10 @@ type Props = TextInputProps & {
   onIconLeftPress?: () => void
   onIconRigthPress?: () => void
 }
+
+
+
+
 
 export const Find = forwardRef((Props: Props, ref: LegacyRef<TextInput> | null) => {
   const { IconLeft, IconRigth, iconLeftName, iconRigthName, title, onIconLeftPress, onIconRigthPress, ...rest } = Props
@@ -38,7 +42,7 @@ export const Find = forwardRef((Props: Props, ref: LegacyRef<TextInput> | null) 
       <View style={styles.boxInput}>
         {IconLeft && iconLeftName && (
           <TouchableOpacity onPress={onIconLeftPress}>
-            <IconLeft name={iconLeftName as any} size={25} color={'gray'} style={styles.icon} />
+            <IconLeft name={iconLeftName as any} size={25} color={'gray'} style={styles.icon}  />
           </TouchableOpacity>
         )}
 

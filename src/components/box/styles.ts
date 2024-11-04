@@ -10,7 +10,7 @@ export const style = StyleSheet.create({
     borderWidth:2,
     borderColor:'black',
     opacity: 0.7,
-    textAlignVertical:'top'
-    
+    textAlignVertical:'top',
+    paddingLeft:5
   },
 })
