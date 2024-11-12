@@ -1,15 +1,14 @@
-import { createDrawerNavigator } from "@react-navigation/drawer";
-import Routes from "./index.routes";
-import User from "../pages/User";
+import { createDrawerNavigator } from '@react-navigation/drawer'
+import navegacao from '../pages/navegacao'
+import { NavigationContainer } from '@react-navigation/native'
 const Drawer = createDrawerNavigator()
 
-export default function DrawerRoutes(){
-    return (
-        <Drawer.Navigator>
-            <Drawer.Screen
-                name='Usuario'
-                component={User}
-            />
-        </Drawer.Navigator>
-    )
+export default function DrawerRoutes() {
+  return (
+    <NavigationContainer>
+      <Drawer.Navigator>
+        <Drawer.Screen name="Navegacao" component={navegacao} />
+      </Drawer.Navigator>
+    </NavigationContainer>
+  )
 }

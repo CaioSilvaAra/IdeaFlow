@@ -1,5 +1,6 @@
 import { Dimensions, StyleSheet } from 'react-native'
 
+
 export const style = StyleSheet.create({
   container: {
     flex: 1,
@@ -35,5 +36,6 @@ export const style = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: 'red, black',
   },
+ 
  
 })

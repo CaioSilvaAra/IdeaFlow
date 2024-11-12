@@ -1,15 +1,14 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import Login from '../pages/login'
-import { createDrawerNavigator } from '@react-navigation/drawer'
-
+import User from '../pages/user'
+import List from '../pages/list'
 
 const Tab = createBottomTabNavigator()
 
 export default function BottomRoutes() {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Login" component={Login} />
+      <Tab.Screen name="User" component={User} />
+      <Tab.Screen name="List" component={List} />
     </Tab.Navigator>
-
   )
 }

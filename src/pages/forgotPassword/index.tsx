@@ -1,30 +1,28 @@
-import React, { useState } from "react";
-import { Text, View, Image } from "react-native";
-import { style } from "./style";
-import { Input } from "../../components/input";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import { useNavigation, NavigationProp } from "@react-navigation/native";
-import Login from "../login";
-import { Goback } from "../../components/goback";
-import { SubTitle, TitleText } from "../../components/text";
-import { Button } from "../../components/button";
+import React, { useState } from 'react'
+import { Text, View, Image } from 'react-native'
+import { style } from './style'
+import { Input } from '../../components/input'
+import { useNavigation, NavigationProp } from '@react-navigation/native'
+import { Goback } from '../../components/goback'
+import { SubTitle, TitleText } from '../../components/text'
+import { Button } from '../../components/button'
 
 export default function ForgotPassword() {
-  const navigation = useNavigation<NavigationProp<any>>();
-  const [email, setEmail] = useState("");
-  const [loading, setLoading] = useState(false);
+  const navigation = useNavigation<NavigationProp<any>>()
+  const [email, setEmail] = useState('')
+  const [loading, setLoading] = useState(false)
 
   async function getLogin() {
-    navigation.navigate("Login");
+    navigation.navigate('Login')
   }
 
   async function getMakePassword() {
-    navigation.navigate("MakePassword");
+    navigation.navigate('MakePassword')
   }
 
   return (
     <View style={style.container}>
-      <Image source={require("../../assets/fundo2.png")} style={style.fundo} />
+      <Image source={require('../../assets/fundo2.png')} style={style.fundo} />
 
       <View style={style.boxTop}>
         <Goback onPress={getLogin} />
@@ -41,5 +39,5 @@ export default function ForgotPassword() {
         <Button text="Enviar Código" onPress={getMakePassword} />
       </View>
     </View>
-  );
+  )
 }

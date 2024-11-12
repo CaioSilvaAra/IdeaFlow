@@ -26,7 +26,7 @@ export const Input = forwardRef((Props: Props, ref: LegacyRef<TextInput> | null)
     if (IconLeft && IconRigth) {
       return '100%'
     } else if (IconLeft || IconRigth) {
-      return '92%'
+      return '94%'
     } else {
       return '100%'
     }

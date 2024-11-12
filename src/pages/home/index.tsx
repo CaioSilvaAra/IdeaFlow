@@ -6,26 +6,35 @@ import { SubTitle, TitleText } from '../../components/text'
 import { Find } from '../../components/find'
 import { MaterialIcons, AntDesign } from '@expo/vector-icons'
 import { BoxNote } from '../../components/box'
-import { DrawerActions, NavigationProp, useNavigation } from '@react-navigation/native'
-import { createDrawerNavigator } from '@react-navigation/drawer'
-
-const Drawer = createDrawerNavigator()
+import { useNavigation, NavigationProp } from '@react-navigation/native'
 
 export default function Home() {
-  const [notes, setNotes] = useState([{ id: Date.now() }]) // Inicializa com uma nota
+  const [notes, setNotes] = useState([]) // Inicializa sem notas visíveis
+  const [showNotes, setShowNotes] = useState(false) // Estado para controlar a visibilidade das notas
+  const [expandedNoteId, setExpandedNoteId] = useState(null)
+  const navigation = useNavigation<NavigationProp<any>>()
 
   const addNote = () => {
+    // Exibe as notas e adiciona uma nova
+    setShowNotes(true)
     setNotes((prevNotes) => [
       ...prevNotes,
       { id: Date.now() }, // Adiciona nova nota
     ])
   }
 
-  const handleNotaChange = () => {
+  const handleNotaChange = (id, newText) => {
     setNotes((prevNotes) => prevNotes.map((note) => (note.id === id ? { ...note, text: newText } : note)))
+  }
+  const toggleExpandNote = (id) => {
+    setExpandedNoteId((prevId) => (prevId === id ? null : id))
   }
 
   
+
+  async function getnavegacao() {
+    navigation.navigate('Navegacao')
+  }
 
   return (
     <View style={style.container}>
@@ -39,7 +48,10 @@ export default function Home() {
           textAlign="center"
           IconLeft={MaterialIcons}
           iconLeftName={'menu'}
-          onIconLeftPress={getUser}
+          onIconLeftPress={() => {
+            // Ao clicar no ícone, abre o Drawer
+            navigation.DrawerRoutes()
+          }}
         />
       </View>
 
@@ -54,28 +66,26 @@ export default function Home() {
         </View>
       </View>
 
-      <ScrollView
-        style={{ height: '70%', marginBottom: 100, marginTop: 300, top: 30 }} // Ajuste a altura aqui
-      >
-        <View
-          style={{
-            flexDirection: 'row',
-            flexWrap: 'wrap',
-            justifyContent: 'space-around',
-            width: '100%',
-            padding: 10,
-            gap: 10,
-          }}
-        >
-          {notes.map((note) => (
-            <BoxNote
-              key={note.id}
-              initialText={note.text}
-              onChangeText={(newText) => handleNotaChange(note.id, newText)}
-            />
-          ))}
-        </View>
-      </ScrollView>
+      {showNotes && ( // Verifica se deve mostrar as notas
+        <ScrollView style={{ height: '70%', marginBottom: 100, marginTop: 300, top: 30 }}>
+          <View
+            style={{
+              flexDirection: 'row',
+              flexWrap: 'wrap',
+              justifyContent: 'space-around',
+              width: '100%',
+              padding: 10,
+              gap: 10,
+            }}
+          >
+            {notes.map((note) => (
+              <TouchableOpacity key={note.id} onPress={() => toggleExpandNote(note.id)}>
+                <BoxNote initialText={note.id} onChangeText={(newText) => handleNotaChange(note, newText)}></BoxNote>
+              </TouchableOpacity>
+            ))}
+          </View>
+        </ScrollView>
+      )}
 
       <View style={style.boxBottom}>
         <View style={{ alignItems: 'flex-end' }}>
